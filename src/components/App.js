@@ -89,9 +89,9 @@ export default function App() {
   useEffect(function () {
     async function fetching() {
       try {
-        const res = await fetch("http://localhost:8000/questions");
+        const res = await fetch("/data/questions.json");
         const data = await res.json();
-        dispatch({ type: "dataReceived", payload: data });
+        dispatch({ type: "dataReceived", payload: data.questions });
       } catch (err) {
         dispatch({ type: "error" });
       }
